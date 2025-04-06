@@ -13,6 +13,7 @@ import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.core.content.FileProvider
+import com.catimg.domain.model.BitmapLruCache
 import com.catimg.features.mainmenu.viewmodel.PHOTO_MAX_HEIGHT
 import com.catimg.features.mainmenu.viewmodel.PHOTO_MAX_WIDTH
 import jp.co.cyberagent.android.gpuimage.GPUImage
