@@ -1,7 +1,7 @@
 # CatImg
 Android application for editing images.
 
-CatImg - in not finished my pet-project and have mistakes and unfinished functions.
+CatImg - it's not finished my pet-project and have mistakes and unfinished functions.
 
 Finished:
 - Import photo from Gallery or making photo with phone camera.
@@ -10,9 +10,10 @@ Finished:
 - Transforming (rotating by a clockwise and anticlockwise, horizontal and vertical flipping).
 - Undo/Redo function.
 - Export to device with custom name.
+- Switch dark/light theme
 
 Unfinished functions:
-- No saving app theme option.
+- No saving user theme option.
 - Problem with sharing photo from app.
 - Some filters do not work as well as they can and they need for selecting bound values.
 
