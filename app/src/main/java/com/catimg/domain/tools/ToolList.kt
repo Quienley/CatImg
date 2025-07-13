@@ -2,6 +2,7 @@ package com.catimg.android.catimg.domain.tools
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import com.catimg.R
 import com.catimg.domain.model.ToolWithFilter
@@ -50,155 +51,155 @@ private fun vector(id: Int): ImageVector {
 fun getToolList(selectedSection: String): List<ToolWithFilter> {
     return when (selectedSection) {
         "Filters" -> listOf(
-            ToolWithFilter(name = "Haze",
+            ToolWithFilter(name = stringResource(R.string.haze),
                 icon = vector(R.drawable.filters_haze),
                 toolFilter = Haze()
             ),
-            ToolWithFilter(name = "Sepia",
+            ToolWithFilter(name = stringResource(R.string.sepia),
                 icon = ImageVector.vectorResource(R.drawable.filters_sepia),
                 toolFilter = Sepia()
             ),
-            ToolWithFilter(name = "Color Inversion",
+            ToolWithFilter(name = stringResource(R.string.color_inversion),
                 icon = vector(R.drawable.filters_inversion),
                 toolFilter = ColorInversion()
             ),
         )
         "ColorCorrect" -> listOf(
-            ToolWithFilter(name = "Brightness",
+            ToolWithFilter(name = stringResource(R.string.brightness),
                 icon = vector(R.drawable.color_correction_brightness),
                 toolFilter = Brightness()
             ),
-            ToolWithFilter(name = "Contrast",
+            ToolWithFilter(name = stringResource(R.string.contrast),
                 icon = vector(R.drawable.color_correction_contrast),
                 toolFilter = Contrast()
             ),
-            ToolWithFilter(name = "Saturation",
+            ToolWithFilter(name = stringResource(R.string.saturation),
                 icon = vector(R.drawable.color_correction_saturation),
                 toolFilter = Saturation()
             ),
-            ToolWithFilter(name = "Levels",
+            ToolWithFilter(name = stringResource(R.string.levels),
                 icon = vector(R.drawable.color_correction_levels),
                 toolFilter = Levels()
             ),
-            ToolWithFilter(name = "Exposure",
+            ToolWithFilter(name = stringResource(R.string.exposure),
                 icon = vector(R.drawable.color_correction_exposure),
                 toolFilter = Exposure()
             ),
-            ToolWithFilter(name = "RGB",
+            ToolWithFilter(name = stringResource(R.string.rgb),
                 icon = vector(R.drawable.color_correction_rgb),
                 toolFilter = RGB()
             ),
-            ToolWithFilter(name = "Hue",
+            ToolWithFilter(name = stringResource(R.string.hue),
                 icon = vector(R.drawable.color_correction_hue),
                 toolFilter = Hue()
             ),
-            ToolWithFilter(name = "White Balance",
+            ToolWithFilter(name = stringResource(R.string.white_balance),
                 icon = vector(R.drawable.color_correction_white_balance),
                 toolFilter = WhiteBalance()
             ),
-            ToolWithFilter(name = "False Color",
+            ToolWithFilter(name = stringResource(R.string.false_color),
                 icon = vector(R.drawable.color_correction_false),
                 toolFilter = FalseColor()
             ),
-            ToolWithFilter(name = "Sharpen",
+            ToolWithFilter(name = stringResource(R.string.sharpen),
                 icon = vector(R.drawable.color_correction_sharpen),
                 toolFilter = Sharpen()
             ),
-            ToolWithFilter(name = "Gamma",
+            ToolWithFilter(name = stringResource(R.string.gamma),
                 icon = vector(R.drawable.color_correction_gamma),
                 toolFilter = Gamma()
             ),
-            ToolWithFilter(name = "Highlights and Shadows",
+            ToolWithFilter(name = stringResource(R.string.highlights_shadows),
                 icon = vector(R.drawable.color_correction_highlights),
                 toolFilter = HighlightsAndShadows()
             ),
         )
         "Stylization" -> listOf(
-            ToolWithFilter(name = "Pixelate",
+            ToolWithFilter(name = stringResource(R.string.pixelate),
                 icon = vector(R.drawable.stylization_pixelate),
                 toolFilter = Pixelation()
             ),
-            ToolWithFilter(name = "Halftone",
+            ToolWithFilter(name = stringResource(R.string.halftone),
                 icon = vector(R.drawable.stylization_halftone),
                 toolFilter = Halftone()
             ),
-            ToolWithFilter(name = "CGA Colorspace",
+            ToolWithFilter(name = stringResource(R.string.cga),
                 icon = vector(R.drawable.stylization_cga),
                 toolFilter = CGAColorSpace()
             ),
-            ToolWithFilter(name = "Posterize",
+            ToolWithFilter(name = stringResource(R.string.posterize),
                 icon = vector(R.drawable.stylization_posterize),
                 toolFilter = Posterize()
             ),
-            ToolWithFilter(name = "Emboss Filter",
+            ToolWithFilter(name = stringResource(R.string.emboss),
                 icon = vector(R.drawable.stylization_hammer),
                 toolFilter = Emboss()
             ),
-            ToolWithFilter(name = "Vignette",
+            ToolWithFilter(name = stringResource(R.string.vignette),
                 icon = vector(R.drawable.stylization_vignette),
                 toolFilter = Vignette()
             ),
         )
         "Sketch Filters" -> listOf(
-            ToolWithFilter(name = "Crosshatch",
+            ToolWithFilter(name = stringResource(R.string.crosshatch),
                 icon = ImageVector.vectorResource(R.drawable.sketch_filters_crosshatch),
                 toolFilter = CrossHatch()
             ),
-            ToolWithFilter(name = "Kuwahara Filter",
+            ToolWithFilter(name = stringResource(R.string.kuwahara),
                 icon = vector(R.drawable.sketch_filters_kuwahara),
                 toolFilter = Kuwahara()
             ),
         )
         "Edge Detection" -> listOf(
-            ToolWithFilter(name = "Sobel Edge Detection",
+            ToolWithFilter(name = stringResource(R.string.sobel_edge),
                 icon = vector(R.drawable.edge_detection_sobel),
                 toolFilter = SobelEdgeDetection()
             ),
-            ToolWithFilter(name = "Threshold Sobel Edge Detection",
+            ToolWithFilter(name = stringResource(R.string.threshold_sobel_edge),
                 icon = vector(R.drawable.edge_detection_threshold),
                 toolFilter = ThresholdEdge()
             ),
-            ToolWithFilter(name = "Laplacian ",
+            ToolWithFilter(name = stringResource(R.string.laplacian),
                 icon = vector(R.drawable.edge_detection_laplacian),
                 toolFilter = Laplacian()
             ),
         )
         "Blur" -> listOf(
-            ToolWithFilter(name = "Gaussian Blur",
+            ToolWithFilter(name = stringResource(R.string.gaussian_blur),
                 icon = vector(R.drawable.blur_gauss),
                 toolFilter = Gaussian()
             ),
-            ToolWithFilter(name = "Box Blur",
+            ToolWithFilter(name = stringResource(R.string.box_blur),
                 icon = vector(R.drawable.blur_box),
                 toolFilter = BoxBlur()
             ),
-            ToolWithFilter(name = "Bilateral Blur",
+            ToolWithFilter(name = stringResource(R.string.bilateral_blur),
                 icon = vector(R.drawable.blur_bilateral),
                 toolFilter = BilateralBlur()
             ),
-            ToolWithFilter(name = "Zoom Blur",
+            ToolWithFilter(name = stringResource(R.string.zoom_blur),
                 icon = vector(R.drawable.blur_zoom),
                 toolFilter = ZoomBlur()
             ),
         )
         "Deformation" -> listOf(
-            ToolWithFilter(name = "Swirl Distortion",
+            ToolWithFilter(name = stringResource(R.string.swirl_distortion),
                 icon = vector(R.drawable.distortion_swirl),
                 toolFilter = Swirl()
             ),
-            ToolWithFilter("Bulge Distortion",
+            ToolWithFilter(name = stringResource(R.string.bulge_distortion),
                 icon = vector(R.drawable.distortion_bulge),
                 toolFilter = Bulge()
             ),
-            ToolWithFilter("Sphere Refraction",
+            ToolWithFilter(name = stringResource(R.string.sphere_refraction),
                 icon = vector(R.drawable.distortion_sphere),
                 toolFilter = SphereRefraction()
             ),
-            ToolWithFilter("Glass Sphere Refraction",
+            ToolWithFilter(name = stringResource(R.string.glass_sphere_refraction),
                 icon = vector(R.drawable.distortion_glass),
                 toolFilter = GlassSphereRefraction()
             ),
-            ToolWithFilter("Dilation",
+            ToolWithFilter(name = stringResource(R.string.dilation),
                 icon = vector(R.drawable.distortion_dilation),
                 toolFilter = Dilation() ),
         )

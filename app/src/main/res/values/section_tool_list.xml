@@ -1,0 +1,9 @@
+<resources>
+    <string name="section_filters">Filters</string>
+    <string name="section_color_correct">ColorCorrect</string>
+    <string name="section_stylization">Stylization</string>
+    <string name="section_sketch_filters">Sketch Filters</string>
+    <string name="section_edge_detection">Edge Detection</string>
+    <string name="section_blur">Blur</string>
+    <string name="section_deformation">Deformation</string>
+</resources>
