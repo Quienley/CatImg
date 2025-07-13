@@ -1,0 +1,28 @@
+<resources>
+    <string name="download_menu">Download options</string>
+    <string name="download_menu_label_textfield">Write a name to your file (Optional)</string>
+    <string name="download_menu_generate_name">Generate name</string>
+    <string name="download_menu_label_parameters">Parameters of downloading</string>
+    <string name="download_menu_save_current">Save current item in history</string>
+    <string name="download_menu_save_last">Save last item in history</string>
+    <string name="download_menu_confirm_button">Save image</string>
+    <string name="download_menu_notification_status">Downloaded %1$s image from history\n with name %2$s</string>
+    <string name="download_menu_notification_label">Saving</string>
+
+    <string name="image_cropper_cancel">Cancel</string>
+    <string name="image_cropper_apply">Apply</string>
+
+    <string name="top_bar_label">CatImg</string>
+    <string name="app_menu">App Menu</string>
+    <string name="app_menu_change_theme">Change Theme</string>
+
+    <string name="dropdown_menu_share">Share image</string>
+    <string name="dropdown_menu_export">Export image</string>
+    <string name="dropdown_menu_flip_horizontal">Flip horizontal</string>
+    <string name="dropdown_menu_flip_vertical">Flip vertical</string>
+    <string name="dropdown_menu_rotate_clockwise">Rotate clockwise 90°</string>
+    <string name="dropdown_menu_rotate_anticlockwise">Rotate anticlockwise 90°</string>
+    <string name="dropdown_menu_crop">Crop</string>
+    <string name="dropdown_menu_zoom_out">Zoom out</string>
+
+</resources>

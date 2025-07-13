@@ -8,7 +8,7 @@ data class FilterParameter(
     val maxValue: Float,
     var currentValue: MutableFloatState
 ) {
-    fun normalizeCurrentValueToUi(): Int {
+    fun decodeToUI(): Int {
         return ((currentValue.floatValue - minValue) / (maxValue - minValue) * 100f).toInt()
     }
 }

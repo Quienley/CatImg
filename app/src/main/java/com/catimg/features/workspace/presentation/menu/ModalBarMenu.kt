@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,7 +58,7 @@ fun ModalBarMenu(drawerState: DrawerState,
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()) {
 
-            Text(text = "App Menu", fontSize = 28.sp)
+            Text(text = stringResource(R.string.app_menu), fontSize = 28.sp)
             IconButton(onClick = { coroutineScope.launch { drawerState.close() } } ) {
                 Icon(imageVector = Icons.Filled.Close,
                     contentDescription = "Close menu",
@@ -101,7 +102,7 @@ fun ModalBarMenu(drawerState: DrawerState,
                     tint = onBackgroundColor,
                     modifier = Modifier.size(20.dp))
             }
-            Text(text = "Change Theme", fontSize = 18.sp)
+            Text(text = stringResource(R.string.app_menu_change_theme), fontSize = 18.sp)
         }
     }
 }

@@ -55,7 +55,7 @@ fun SettingsWindow(filter: ToolFilter,
                     modifier = Modifier.fillMaxWidth()) {
                     Text(text = "${parameter.name}:", color = onBackgroundColor)
                     Text(
-                        text = "${parameter.normalizeCurrentValueToUi()}",
+                        text = "${parameter.decodeToUI()}",
                         color = onBackgroundColor)
                 }
                 Slider(

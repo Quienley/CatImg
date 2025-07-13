@@ -1,5 +1,6 @@
 package com.catimg.features.workspace.presentation.downloadmenu
 
+import android.annotation.SuppressLint
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -38,9 +39,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.catimg.R
 import com.catimg.features.workspace.presentation.settings.SettingsButton
 import com.catimg.features.mainmenu.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
@@ -48,6 +51,7 @@ import kotlinx.coroutines.launch
 
 private const val LINE_HEIGHT = 1
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DownloadMenu(viewModel: MainViewModel) {
@@ -77,7 +81,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
                 title = {
                     Text(
                         modifier = Modifier.offset(y = 3.dp),
-                        text = "Download options",
+                        text = stringResource(R.string.download_menu),
                         fontSize = 28.sp,
                         color = onBackgroundColor
                     )
@@ -104,7 +108,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(
-                text = "Write a name to your file (Optional)",
+                text = stringResource(R.string.download_menu_label_textfield),
                 fontSize = labelFontSize,
                 color = onBackgroundColor
             )
@@ -120,7 +124,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
             )
 
             SettingsButton(
-                text = "Generate name",
+                text = stringResource(R.string.download_menu_generate_name),
                 modifier = Modifier.fillMaxWidth()) {
                     message.value = "image_${System.currentTimeMillis()}"
                 }
@@ -135,7 +139,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
             Spacer(modifier = Modifier.fillMaxWidth().height(25.dp))
 
             Text(
-                text = "Parameters of downloading",
+                text = stringResource(R.string.download_menu_label_parameters),
                 fontSize = labelFontSize,
                 color = onBackgroundColor
             )
@@ -153,7 +157,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
                         onClick = { saveCurrentItem.value = true }
                     )
                     Text(
-                        text = "Save current item in history",
+                        text = stringResource(R.string.download_menu_save_current),
                         color = onBackgroundColor,
                         fontSize = 18.sp
                     )
@@ -169,7 +173,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
                         onClick = { saveCurrentItem.value = false }
                     )
                     Text(
-                        text = "Save last item in history",
+                        text = stringResource(R.string.download_menu_save_last),
                         color = onBackgroundColor,
                         fontSize = 18.sp
                     )
@@ -186,7 +190,7 @@ fun DownloadMenu(viewModel: MainViewModel) {
             Spacer(modifier = Modifier.fillMaxWidth().height(25.dp))
 
             SettingsButton(
-                text = "Save image",
+                text = stringResource(R.string.download_menu_confirm_button),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 if (!isSaved.value) {
@@ -194,24 +198,27 @@ fun DownloadMenu(viewModel: MainViewModel) {
                         "image_${System.currentTimeMillis()}"
                     } else message.value
 
+                    val item = if (saveCurrentItem.value) "current"
+                                else "the last"
+
+                    val textNotification = LocalContext.current.getString(R.string.download_menu_notification_status, item, name)
+                    val labelNotification = LocalContext.current.getString(R.string.download_menu_notification_label)
+
                     isSaved.value =
                         viewModel.saveBitmapToGallery(
                             context,
                             name,
                             saveCurrentItem.value
                         )
+
                     scope.launch {
                         while (!isSaved.value) {
                             delay(100)
                         }
+
                         snackbarHostState.showSnackbar(
-                            actionLabel = "Saving",
-                            message = "Downloaded ${
-                                if (saveCurrentItem.value)
-                                    "current" else
-                                    "the last"
-                            } " + "image from history\n" +
-                            "with name: \"${name}\"",
+                            actionLabel = labelNotification,
+                            message = textNotification,
                             duration = SnackbarDuration.Short
                         )
                         isSaved.value = false

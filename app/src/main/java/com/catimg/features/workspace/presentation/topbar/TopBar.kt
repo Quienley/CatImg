@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.catimg.R
@@ -78,7 +79,7 @@ fun TopBar(modifier: Modifier,
                 .fillMaxHeight(0.11f)
                 .then(modifier),
             title = {
-                Text(text = "CatImg", modifier = Modifier.offset(y = 8.dp))
+                Text(text = stringResource(R.string.top_bar_label), modifier = Modifier.offset(y = 8.dp))
             },
             navigationIcon = {
                 IconButton( onClick = { if (!primaryViewModel.isAdjusting) openMenu() } ) {
@@ -107,12 +108,12 @@ fun TopBar(modifier: Modifier,
                     containerColor = backgroundColor
                 ) {
                     DropdownMenuButton(
-                        text = "Share image",
+                        text = stringResource(R.string.dropdown_menu_share),
                         imageVector = Icons.Default.Share,
                         action = { viewModel.shareImage(context) }
                     )
                     DropdownMenuButton(
-                        text = "Export image",
+                        text = stringResource(R.string.dropdown_menu_export),
                         imageVector = ImageVector.vectorResource(R.drawable.modal_menu_download),
                         action = {
                             viewModel.navController.navigate("download_menu")
@@ -121,35 +122,35 @@ fun TopBar(modifier: Modifier,
                     )
                     Divider()
                     DropdownMenuButton(
-                        text = "Flip horizontal",
+                        text = stringResource(R.string.dropdown_menu_flip_horizontal),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_flip_horizontal),
                         action = {
                             viewModel.flipImage(horizontal = true)
                         }
                     )
                     DropdownMenuButton(
-                        text = "Flip vertical",
+                        text = stringResource(R.string.dropdown_menu_flip_vertical),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_flip_vertical),
                         action = {
                             viewModel.flipImage(horizontal = false)
                         }
                     )
                     DropdownMenuButton(
-                        text = "Rotate clockwise 90°",
+                        text = stringResource(R.string.dropdown_menu_rotate_clockwise),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_turn_clockwise),
                         action = {
                             viewModel.rotateImage(90f)
                         }
                     )
                     DropdownMenuButton(
-                        text = "Rotate anticlockwise 90°",
+                        text = stringResource(R.string.dropdown_menu_rotate_anticlockwise),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_turn_anticlockwise),
                         action = {
                             viewModel.rotateImage(-90f)
                         }
                     )
                     DropdownMenuButton(
-                        text = "Crop",
+                        text = stringResource(R.string.dropdown_menu_crop),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_crop),
                         action = {
                             viewModel.incrementScreenStatus()
@@ -157,7 +158,7 @@ fun TopBar(modifier: Modifier,
                         }
                     )
                     DropdownMenuButton(
-                        text = "Zoom out",
+                        text = stringResource(R.string.dropdown_menu_zoom_out),
                         imageVector = ImageVector.vectorResource(R.drawable.dropdown_zoom_out),
                         action = {
                             primaryViewModel.scale = MIN_SCALE

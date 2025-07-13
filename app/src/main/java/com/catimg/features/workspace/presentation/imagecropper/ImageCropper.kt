@@ -11,10 +11,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidView
 import com.catimg.features.workspace.presentation.settings.SettingsButton
 import com.catimg.features.mainmenu.viewmodel.MainViewModel
 import com.canhub.cropper.CropImageView
+import com.catimg.R
 
 @Composable
 fun ImageCropper(viewModel: MainViewModel) {
@@ -44,13 +46,13 @@ fun ImageCropper(viewModel: MainViewModel) {
         Row(horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth().weight(0.15f).background(backgroundColor)) {
-            SettingsButton(text = "Cancel") {
+            SettingsButton(text = stringResource(R.string.image_cropper_cancel)) {
                 viewModel.refresh()
                 viewModel.decrementScreenStatus()
                 viewModel.navController.popBackStack()
             }
 
-            SettingsButton(text = "Commit") {
+            SettingsButton(text = stringResource(R.string.image_cropper_apply)) {
                 cropImageView?.let {
                     viewModel.photoBitmap.value = it.getCroppedImage()
                     viewModel.addToCache()
