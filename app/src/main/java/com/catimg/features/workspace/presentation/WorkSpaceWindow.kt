@@ -5,9 +5,11 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -48,7 +50,7 @@ fun WorkSpaceWindow(mainViewModel: MainViewModel) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     ModalNavigationDrawer(
-        gesturesEnabled = false,
+        gesturesEnabled = true,
         drawerState = primaryViewModel.drawerState,
         drawerContent = {
             ModalDrawerSheet(modifier = Modifier.background(backgroundColor)) {

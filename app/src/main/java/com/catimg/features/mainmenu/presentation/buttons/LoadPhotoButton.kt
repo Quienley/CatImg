@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.catimg.R
 import com.catimg.features.mainmenu.viewmodel.MainViewModel
@@ -25,7 +26,7 @@ fun LoadPhotoButton(viewModel: MainViewModel,
     }
 
     MenuButton(
-        label = "Import photo",
+        label = stringResource(R.string.import_photo),
         iconPainter = painterResource(R.drawable.button_ic_load_photo),
         onClickAction = { galleryLauncher.launch("image/*")}
     )

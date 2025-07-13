@@ -1,0 +1,44 @@
+<resources>
+    <string name="haze">Haze</string>
+    <string name="sepia">Sepia</string>
+    <string name="color_inversion">Color Inversion</string>
+
+    <string name="brightness">Brightness</string>
+    <string name="contrast">Contrast</string>
+    <string name="saturation">Saturation</string>
+    <string name="levels">Levels</string>
+    <string name="exposure">Exposure</string>
+    <string name="rgb">RGB</string>
+    <string name="hue">Hue</string>
+    <string name="white_balance">White Balance</string>
+    <string name="false_color">False Color</string>
+    <string name="sharpen">Sharpen</string>
+    <string name="gamma">Gamma</string>
+    <string name="highlights_shadows">Highlights and Shadows</string>
+
+    <string name="pixelate">Pixelate</string>
+    <string name="halftone">Halftone</string>
+    <string name="cga">CGA Colorspace</string>
+    <string name="posterize">Posterize</string>
+    <string name="emboss">Emboss Filter</string>
+    <string name="vignette">Vignette</string>
+
+    <string name="crosshatch">Crosshatch</string>
+    <string name="kuwahara">Kuwahara Filter</string>
+
+    <string name="sobel_edge">Sobel Edge Detection</string>
+    <string name="threshold_sobel_edge">Threshold Sobel Edge Detection</string>
+    <string name="laplacian">Laplacian</string>
+
+    <string name="gaussian_blur">Gaussian Blur</string>
+    <string name="box_blur">Box Blur</string>
+    <string name="bilateral_blur">Bilateral Blur</string>
+    <string name="zoom_blur">Zoom Blur</string>
+
+    <string name="swirl_distortion">Swirl Distortion</string>
+    <string name="bulge_distortion">Bulge Distortion</string>
+    <string name="sphere_refraction">Sphere Refraction</string>
+    <string name="glass_sphere_refraction">Glass Sphere Refraction</string>
+    <string name="dilation">Dilation</string>
+
+</resources>

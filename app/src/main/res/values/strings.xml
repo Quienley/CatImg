@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">CatImg</string>
-    <string name="make_photo">Open Camera</string>
-    <string name="load_photo">Load Photo</string>
 </resources>
