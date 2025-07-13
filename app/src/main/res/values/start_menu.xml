@@ -1,0 +1,4 @@
+<resources>
+    <string name="import_photo">Load Photo</string>
+    <string name="make_photo">Open Camera</string>
+</resources>
