@@ -10,10 +10,9 @@ Finished:
 - Transforming (rotating by a clockwise and anticlockwise, horizontal and vertical flipping).
 - Undo/Redo function.
 - Export to device with custom name.
-- Switch dark/light theme
+- Option switch dark/light theme with saving user preferences.
 
 Unfinished functions:
-- No saving user theme option.
 - Problem with sharing photo from app.
 - Some filters do not work as well as they can and they need for selecting bound values.
 
