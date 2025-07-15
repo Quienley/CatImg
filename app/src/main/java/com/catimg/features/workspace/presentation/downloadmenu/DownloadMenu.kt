@@ -33,6 +33,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -198,12 +199,6 @@ fun DownloadMenu(viewModel: MainViewModel) {
                         "image_${System.currentTimeMillis()}"
                     } else message.value
 
-                    val item = if (saveCurrentItem.value) "current"
-                                else "the last"
-
-                    val textNotification = LocalContext.current.getString(R.string.download_menu_notification_status, item, name)
-                    val labelNotification = LocalContext.current.getString(R.string.download_menu_notification_label)
-
                     isSaved.value =
                         viewModel.saveBitmapToGallery(
                             context,
@@ -217,8 +212,8 @@ fun DownloadMenu(viewModel: MainViewModel) {
                         }
 
                         snackbarHostState.showSnackbar(
-                            actionLabel = labelNotification,
-                            message = textNotification,
+                            actionLabel = "Saving",
+                            message = "Saved message",
                             duration = SnackbarDuration.Short
                         )
                         isSaved.value = false

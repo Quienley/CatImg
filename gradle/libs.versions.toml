@@ -1,5 +1,5 @@
 [versions]
-agp = "8.6.1"
+agp = "8.9.1"
 androidImageCropper = "4.5.0"
 datastorePreferences = "1.1.4"
 gpuimage = "2.1.0"
@@ -13,9 +13,11 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2025.02.00"
 navigationCompose = "2.8.8"
+protobufJavalite = "3.24.0"
 uiTextGoogleFonts = "1.7.8"
 protoliteWellKnownTypes = "18.0.0"
 composeTesting = "1.0.0-alpha03"
+protobuffer = "0.9.4"
 
 [libraries]
 android-gpuimage = { module = "jp.co.cyberagent.android:gpuimage", version.ref = "gpuimageVersion" }
@@ -39,6 +41,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobufJavalite" }
 protolite-well-known-types = { group = "com.google.firebase", name = "protolite-well-known-types", version.ref = "protoliteWellKnownTypes" }
 androidx-compose-testing = { group = "androidx.xr.compose", name = "compose-testing", version.ref = "composeTesting" }
 
@@ -46,4 +49,4 @@ androidx-compose-testing = { group = "androidx.xr.compose", name = "compose-test
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+google-protobuf = { id = "com.google.protobuf", version.ref = "protobuffer" }

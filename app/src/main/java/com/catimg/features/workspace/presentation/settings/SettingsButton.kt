@@ -33,7 +33,7 @@ private const val BORDER_SIZE = 1
 @Composable
 fun SettingsButton(text: String,
                    modifier: Modifier = Modifier,
-                   action: @Composable () -> Unit) {
+                   action: () -> Unit) {
     val onBackgroundColor = MaterialTheme.colorScheme.onBackground
     val backgroundColor = MaterialTheme.colorScheme.background
 

@@ -72,7 +72,9 @@ fun ModalBarMenu(drawerState: DrawerState,
 
         Row(modifier = Modifier.fillMaxWidth()
             .background(surfaceColor)
-            .clickable { mainViewModel.inverseAppTheme() }
+            .clickable {
+                mainViewModel.inverseAppTheme(context)
+            }
             .padding(horizontal = 15.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)) {

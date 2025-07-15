@@ -6,14 +6,19 @@ import android.net.Uri
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.catimg.data.repository.PhotoRepository
+import com.catimg.domain.model.userPreferencesStore
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import java.io.File
+
 const val PHOTO_MAX_WIDTH = 2048
 const val PHOTO_MAX_HEIGHT = 2048
 
-class MainViewModel(): ViewModel() {
+class MainViewModel(context: Context): ViewModel() {
     val isFirstPosition
         get() = photoRepository.isFirstPosition
 
@@ -29,6 +34,17 @@ class MainViewModel(): ViewModel() {
     lateinit var navController: NavHostController
     private var _screenState = mutableIntStateOf(0)
 
+    init {
+        viewModelScope.launch {
+            context.userPreferencesStore.data
+                .map { it.darkTheme }
+                .collect { value ->
+                    darkTheme.value = value
+                    savePreferenceDarkTheme(context)
+                }
+        }
+    }
+
     val screenState: Int
         get() = _screenState.intValue
 
@@ -38,7 +54,14 @@ class MainViewModel(): ViewModel() {
         }
     }
 
-    fun inverseAppTheme() { darkTheme.value = !darkTheme.value }
+    fun inverseAppTheme(context: Context) {
+        val newValue = !darkTheme.value
+        darkTheme.value = newValue
+        viewModelScope.launch {
+            savePreferenceDarkTheme(context)
+        }
+    }
+
     fun decrementScreenStatus() = --_screenState.intValue
     fun incrementScreenStatus() = ++_screenState.intValue
 
@@ -74,5 +97,13 @@ class MainViewModel(): ViewModel() {
                             fileName: String,
                             isSavingCurrentPhoto: Boolean): Boolean {
         return photoRepository.saveBitmapToGallery(context, fileName, isSavingCurrentPhoto)
+    }
+
+    suspend fun savePreferenceDarkTheme(context: Context) {
+        context.userPreferencesStore.updateData { currentSettings ->
+            currentSettings.toBuilder()
+                .setDarkTheme(darkTheme.value)
+                .build()
+        }
     }
 }
