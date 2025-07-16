@@ -11,9 +11,9 @@ Finished:
 - Undo/Redo function.
 - Export to device with custom name.
 - Option switch dark/light theme with saving user preferences.
+- Sharing function to messangers.
 
-Unfinished functions:
-- Problem with sharing photo from app.
+Unfinished:
 - Some filters do not work as well as they can and they need for selecting bound values.
 
 Used technologies:
