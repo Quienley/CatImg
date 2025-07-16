@@ -13,6 +13,7 @@ import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.core.content.FileProvider
+import com.catimg.R
 import com.catimg.domain.model.BitmapLruCache
 import com.catimg.features.mainmenu.viewmodel.PHOTO_MAX_HEIGHT
 import com.catimg.features.mainmenu.viewmodel.PHOTO_MAX_WIDTH
@@ -94,27 +95,41 @@ class PhotoRepository {
     }
 
     fun shareImage(context: Context) {
-        val file = File(context.cacheDir, "shared_image.png")
-        val imageUri = try {
-            FileOutputStream(file).use { outputStream ->
-                bitmapLruCache[currentPosition]?.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-            }
-            FileProvider.getUriForFile(
-                context,
-                "${context.packageName}.fileprovider",
-                file
-            )
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
+        val bitmap = bitmapLruCache[currentPosition]
+        val fileName = "shared_image.jpg"
+
+        val contentValues = ContentValues().apply {
+            put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
+            put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+            put(MediaStore.Images.Media.WIDTH, bitmap?.width)
+            put(MediaStore.Images.Media.HEIGHT, bitmap?.height)
+            put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CatImg")
         }
 
-        val shareIntent = Intent(Intent.ACTION_SEND).apply {
-            type = "image/*"
-            putExtra(Intent.EXTRA_STREAM, imageUri)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        val contentResolver = context.contentResolver
+        val imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+
+        if (imageUri != null) {
+            try {
+                contentResolver.openOutputStream(imageUri)?.use { outputStream ->
+                    bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+                }
+
+                contentValues.clear()
+                contentResolver.update(imageUri, contentValues, null, null)
+
+                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "image/jpeg"
+                    putExtra(Intent.EXTRA_STREAM, imageUri)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+
+                context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.sharing_label)))
+
+            } catch (e: IOException) {
+                Log.e("ShareImage", "Error with sharing photo", e)
+            }
         }
-        context.startActivity(Intent.createChooser(shareIntent, "Отправить через"))
     }
 
     fun createImageFile(context: Context): File {
