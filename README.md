@@ -1,20 +1,20 @@
 # CatImg
 Android application for editing images.
 
-CatImg - it's finished my pet-project — Android Application for editing photos.
+CatImg — it is my finished pet-project for editing photos.
 
-Finished:
+List of app functions:
 - Import photo from Gallery or making photo with phone camera.
-- Applying filters.
+- Applying filters (Almost all of the filters from the GPUImage Library that can be applied to the image).
 - Cropping image.
 - Transforming (rotating by a clockwise and anticlockwise, horizontal and vertical flipping).
 - Undo/Redo function.
 - Export to device with custom name.
 - Option switch dark/light theme with saving user preferences.
-- Sharing function to messangers.
+- Sharing photo to messangers.
 
-Unfinished:
-- Some filters do not work as well as they can and they need for selecting bound values.
+Warning:
+Some filters do not work as well as they can because they need to select (guess) bound values. Not all the filters have correct documentation (GPUImage).
 
 Used technologies:
 - **Jetpack Compose** - UI.
