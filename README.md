@@ -1,7 +1,7 @@
 # CatImg
 Android application for editing images.
 
-CatImg - it's not finished my pet-project and it has mistakes and unfinished functions.
+CatImg - it's finished my pet-project — Android Application for editing photos.
 
 Finished:
 - Import photo from Gallery or making photo with phone camera.
